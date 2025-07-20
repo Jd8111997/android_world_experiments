@@ -120,10 +120,10 @@ framework.setup_environment()
 
 ### Basic Agent Evaluation
 ```python
-from src.framework import AndroidWorldFramework
+from src.evaluation import EvaluationFramework
 
 # Initialize framework
-framework = AndroidWorldFramework()
+framework = EvaluationFramework()
 framework.setup_environment()
 
 # Run single episode
