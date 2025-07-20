@@ -1,0 +1,108 @@
+{
+    "examples": [
+      {
+        "goal": "Uninstall the Slack app",
+        "ui_elements": [
+          {"index": 0, "text": "Settings", "clickable": true},
+          {"index": 1, "text": "Apps", "clickable": true},
+          {"index": 2, "text": "Battery", "clickable": true},
+          {"index": 3, "text": "Display", "clickable": true}
+        ],
+        "action": {"action_type": "click", "index": 1},
+        "reasoning": "To uninstall an app, I need to access the Apps section in Settings. I can see 'Apps' at index 1, so I'll click on it to navigate to app management.",
+        "category": "navigation"
+      },
+      {
+        "goal": "Turn on Wi-Fi",
+        "ui_elements": [
+          {"index": 0, "text": "Wi-Fi", "clickable": true},
+          {"index": 1, "text": "Bluetooth", "clickable": true},
+          {"index": 2, "text": "Mobile data", "clickable": true},
+          {"index": 3, "text": "Airplane mode", "clickable": true}
+        ],
+        "action": {"action_type": "click", "index": 0},
+        "reasoning": "I can see 'Wi-Fi' option directly at index 0. Clicking on it should take me to Wi-Fi settings where I can turn it on.",
+        "category": "settings"
+      },
+      {
+        "goal": "Add a new contact named John Smith",
+        "ui_elements": [
+          {"index": 0, "text": "Search contacts", "clickable": true},
+          {"index": 1, "text": "+", "clickable": true},
+          {"index": 2, "text": "Recent", "clickable": true},
+          {"index": 3, "text": "Favorites", "clickable": true}
+        ],
+        "action": {"action_type": "click", "index": 1},
+        "reasoning": "To add a new contact, I should click the '+' button at index 1 which is the standard way to add new items in Android apps.",
+        "category": "contact_management"
+      },
+      {
+        "goal": "Search for 'pizza restaurants'",
+        "ui_elements": [
+          {"index": 0, "text": "Search", "clickable": true},
+          {"index": 1, "text": "Menu", "clickable": true},
+          {"index": 2, "text": "Profile", "clickable": true}
+        ],
+        "action": {"action_type": "input_text", "text": "pizza restaurants", "index": 0},
+        "reasoning": "I need to type 'pizza restaurants' in the search box. The search element is at index 0, so I'll use input_text action to type the query.",
+        "category": "text_input"
+      },
+      {
+        "goal": "Set alarm for 7:00 AM",
+        "ui_elements": [
+          {"index": 0, "text": "Clock", "clickable": true},
+          {"index": 1, "text": "Calendar", "clickable": true},
+          {"index": 2, "text": "Calculator", "clickable": true},
+          {"index": 3, "text": "Camera", "clickable": true}
+        ],
+        "action": {"action_type": "click", "index": 0},
+        "reasoning": "To set an alarm, I need to open the Clock app first. I can see 'Clock' at index 0, so I'll click on it.",
+        "category": "app_launch"
+      },
+      {
+        "goal": "Check battery usage statistics",
+        "ui_elements": [
+          {"index": 0, "text": "Settings", "clickable": true},
+          {"index": 1, "text": "Battery", "clickable": true},
+          {"index": 2, "text": "Storage", "clickable": true},
+          {"index": 3, "text": "Privacy", "clickable": true}
+        ],
+        "action": {"action_type": "click", "index": 1},
+        "reasoning": "Battery usage information is directly accessible through the Battery option. I can see 'Battery' at index 1, so I'll click on it.",
+        "category": "system_info"
+      },
+      {
+        "goal": "Take a photo",
+        "ui_elements": [
+          {"index": 0, "text": "Camera", "clickable": true},
+          {"index": 1, "text": "Gallery", "clickable": true},
+          {"index": 2, "text": "Video", "clickable": true}
+        ],
+        "action": {"action_type": "open_app", "app_name": "Camera"},
+        "reasoning": "To take a photo, I should open the Camera app. Using open_app action is more reliable than navigating through the interface.",
+        "category": "app_launch"
+      },
+      {
+        "goal": "Enable Bluetooth",
+        "ui_elements": [
+          {"index": 0, "text": "Connected devices", "clickable": true},
+          {"index": 1, "text": "Display", "clickable": true},
+          {"index": 2, "text": "Sound", "clickable": true}
+        ],
+        "action": {"action_type": "click", "index": 0},
+        "reasoning": "Bluetooth settings are typically found under 'Connected devices'. I can see this option at index 0, so I'll click on it to access Bluetooth settings.",
+        "category": "connectivity"
+      }
+    ],
+    "guidelines": {
+      "action_format": "Always use JSON format with exact index numbers from UI elements",
+      "reasoning_quality": "Provide clear, logical explanations for action choices",
+      "index_validation": "Ensure index exists in the UI elements list before using it",
+      "preferred_actions": [
+        "Use open_app for launching apps when possible",
+        "Use input_text for typing instead of clicking individual keys",
+        "Navigate through Settings for system configurations",
+        "Click on '+' buttons for adding new items"
+      ]
+    }
+}

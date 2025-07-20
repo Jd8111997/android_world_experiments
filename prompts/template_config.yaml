@@ -1,0 +1,87 @@
+# Template Configuration for Android World LLM Agent
+
+templates:
+  basic:
+    description: "Simple template with clear action format"
+    max_tokens: 200
+    temperature: 0.1
+    use_examples: false
+    use_history: false
+    
+  detailed:
+    description: "Comprehensive template with guidelines and history"
+    max_tokens: 300
+    temperature: 0.1
+    use_examples: false
+    use_history: true
+    
+  few_shot:
+    description: "Template with curated examples of good behavior"
+    max_tokens: 400
+    temperature: 0.1
+    use_examples: true
+    num_examples: 3
+    use_history: false
+    
+  chain_of_thought:
+    description: "Structured reasoning with 4-step analysis"
+    max_tokens: 500
+    temperature: 0.1
+    use_examples: false
+    use_history: false
+    reasoning_steps:
+      - "Situation Analysis"
+      - "Goal Assessment" 
+      - "Action Planning"
+      - "Risk Evaluation"
+      
+  self_reflection:
+    description: "Self-reflective template with progress analysis"
+    max_tokens: 600
+    temperature: 0.1
+    use_examples: false
+    use_history: true
+    reflection_steps:
+      - "Progress Evaluation"
+      - "Pattern Recognition"
+      - "Strategy Assessment"
+      - "Error Analysis"
+      - "Next Step Planning"
+      
+  few_shot_reflection:
+    description: "Combined few-shot examples with self-reflection"
+    max_tokens: 700
+    temperature: 0.1
+    use_examples: true
+    num_examples: 1
+    use_history: true
+
+# LLM Configuration
+llm_providers:
+  openai:
+    models:
+      - "gpt-4o-mini"
+      - "gpt-3.5-turbo"
+    default_model: "gpt-4o-mini"
+    
+  anthropic:
+    models:
+      - "claude-3-sonnet-20240229"
+      - "claude-3-haiku-20240307"
+      - "claude-3-opus-20240229"
+    default_model: "claude-3-sonnet-20240229"
+
+# Evaluation Settings
+evaluation:
+  max_steps_per_episode: 20
+  timeout_seconds: 300
+  retry_failed_actions: false
+  save_screenshots: true
+  detailed_logging: true
+
+# Error Handling
+error_handling:
+  max_retries: 3
+  fallback_action: "wait"
+  ignore_element_not_found: false
+  strict_index_validation: true

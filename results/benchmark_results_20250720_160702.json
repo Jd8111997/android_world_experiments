@@ -1,0 +1,94 @@
+{
+  "benchmark_summary": {
+    "total_episodes": 3,
+    "avg_step_accuracy": 0.43333333333333335,
+    "episode_success_rate": 0.0,
+    "avg_steps_per_episode": 20,
+    "completion_reasons": {
+      "max_steps_reached": 3
+    },
+    "error_analysis": {
+      "element_not_found": 2,
+      "execution_error": 1,
+      "action_parsing_error": 1,
+      "element_not_clickable": 1
+    },
+    "llm_performance": {
+      "openai": {
+        "episodes": 3,
+        "success_rate": 0.0,
+        "avg_steps": 20,
+        "avg_step_accuracy": 0.43333333333333335
+      }
+    },
+    "template_performance": {
+      "few_shot": {
+        "episodes": 1,
+        "success_rate": 0.0,
+        "avg_steps": 20,
+        "avg_step_accuracy": 1.0
+      },
+      "self_reflection": {
+        "episodes": 1,
+        "success_rate": 0.0,
+        "avg_steps": 20,
+        "avg_step_accuracy": 0.1
+      },
+      "few_shot_reflection": {
+        "episodes": 1,
+        "success_rate": 0.0,
+        "avg_steps": 20,
+        "avg_step_accuracy": 0.2
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "task_name": "ContactsAddContact",
+      "goal": "Create a new contact for Emilia Wang. Their number is +14354878284.",
+      "success": false,
+      "steps_taken": 20,
+      "action_success_rate": 1.0,
+      "llm_provider": "openai",
+      "template_name": "few_shot",
+      "execution_time": 50.30015683174133,
+      "error_types": [],
+      "completion_reason": "max_steps_reached",
+      "step_accuracy": 1.0
+    },
+    {
+      "task_name": "ContactsAddContact",
+      "goal": "Create a new contact for Maya Ahmed. Their number is +18541097463.",
+      "success": false,
+      "steps_taken": 20,
+      "action_success_rate": 0.1,
+      "llm_provider": "openai",
+      "template_name": "self_reflection",
+      "execution_time": 110.92076110839844,
+      "error_types": [
+        "element_not_found",
+        "execution_error"
+      ],
+      "completion_reason": "max_steps_reached",
+      "step_accuracy": 0.1
+    },
+    {
+      "task_name": "ContactsAddContact",
+      "goal": "Create a new contact for Luis Martin. Their number is +11272711381.",
+      "success": false,
+      "steps_taken": 20,
+      "action_success_rate": 0.2,
+      "llm_provider": "openai",
+      "template_name": "few_shot_reflection",
+      "execution_time": 98.46278810501099,
+      "error_types": [
+        "action_parsing_error",
+        "element_not_found",
+        "element_not_clickable"
+      ],
+      "completion_reason": "max_steps_reached",
+      "step_accuracy": 0.2
+    }
+  ],
+  "timestamp": "2025-07-20T16:07:02.303923"
+}
