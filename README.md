@@ -11,7 +11,6 @@ android-world-evaluation/
 ├── report.md             # Evaluation findings (sample)
 │
 ├── src/                   # Core framework code
-│   ├── __init__.py
 │   ├── framework.py       # Main Android World framework
 │   ├── agent.py          # Enhanced Android agent with LLM integration
 │   ├── llm_client.py     # LLM client for multiple providers
