@@ -1,4 +1,3 @@
-# android_world_experiments
 # Android World LLM Agent Evaluation Framework
 
 A comprehensive framework for evaluating LLM agents on mobile automation tasks using the Android World benchmark.
