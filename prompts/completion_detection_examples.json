@@ -1,0 +1,78 @@
+{
+    "completion_detection_examples": [
+      {
+        "goal": "Turn on Wi-Fi",
+        "ui_indicators": ["Wi-Fi ON", "Connected to Network", "Wi-Fi: Enabled"],
+        "completion_reasoning": "I can see Wi-Fi is already ON/enabled, so the goal is complete",
+        "action": {"action_type": "status", "goal_status": "complete"}
+      },
+      {
+        "goal": "Enable Bluetooth", 
+        "ui_indicators": ["Bluetooth ON", "Bluetooth: Connected", "Paired devices visible"],
+        "completion_reasoning": "Bluetooth is already enabled as indicated by the ON status",
+        "action": {"action_type": "status", "goal_status": "complete"}
+      },
+      {
+        "goal": "Uninstall Calculator app",
+        "ui_indicators": ["App not found in list", "Uninstall successful", "Calculator removed"],
+        "completion_reasoning": "The Calculator app is no longer visible, indicating successful uninstallation",
+        "action": {"action_type": "status", "goal_status": "complete"}
+      },
+      {
+        "goal": "Open Settings app",
+        "ui_indicators": ["Settings", "System settings", "Preferences screen visible"],
+        "completion_reasoning": "I can see the Settings app is already open based on the current screen",
+        "action": {"action_type": "status", "goal_status": "complete"}
+      },
+      {
+        "goal": "Set volume to maximum",
+        "ui_indicators": ["Volume: 100%", "Max volume", "Volume slider at maximum"],
+        "completion_reasoning": "Volume is already at maximum level as shown by the indicator",
+        "action": {"action_type": "status", "goal_status": "complete"}
+      }
+    ],
+    "backtracking_examples": [
+      {
+        "situation": "Clicked same button 3 times without success",
+        "reasoning": "I've repeated the same action multiple times unsuccessfully. I should try a different approach or go back.",
+        "action": {"action_type": "navigate_back"}
+      },
+      {
+        "situation": "In wrong app section, need to return to main menu",
+        "reasoning": "I've navigated to the wrong section. I should go back to find the correct path.",
+        "action": {"action_type": "navigate_back"}
+      },
+      {
+        "situation": "Stuck in loop between two screens",
+        "reasoning": "I'm going back and forth between screens without progress. Let me return to a previous stable state.",
+        "action": {"action_type": "navigate_back"}
+      },
+      {
+        "situation": "Multiple failed attempts at same approach",
+        "reasoning": "My current strategy isn't working after several attempts. I should try a completely different approach.",
+        "action": {"action_type": "navigate_home"}
+      }
+    ],
+    "guidelines": {
+      "completion_detection": [
+        "Look for visual indicators that show the goal is already achieved",
+        "Check for 'ON', 'enabled', 'active', 'connected' states for enable tasks",
+        "Look for absence of items for uninstall/remove tasks", 
+        "Check if you're already in the target app/screen for open tasks",
+        "Don't continue if the goal appears to be completed"
+      ],
+      "backtracking_triggers": [
+        "Same action repeated 2+ times unsuccessfully",
+        "Stuck in loop between screens",
+        "No progress for 3+ steps",
+        "Wrong app or section reached",
+        "Multiple consecutive execution failures"
+      ],
+      "backtracking_strategies": [
+        "Use navigate_back to return to previous screen",
+        "Try navigate_home to start fresh if deeply stuck",
+        "Change approach completely rather than repeating failed actions",
+        "Look for alternative navigation paths"
+      ]
+    }
+  }
